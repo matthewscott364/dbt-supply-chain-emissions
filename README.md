@@ -205,14 +205,6 @@ Adds:
 
 ---
 
-## 📷 Screenshots (Recommended)
-
-* dbt lineage graph
-* Databricks tables
-* ER diagram (Lucidchart)
-* Power BI dashboard (optional)
-
----
 
 ## 🚀 Future Improvements
 
