@@ -227,7 +227,6 @@ Adds:
 
 **Matthew Scott**
 Aspiring Analytics Engineer / Data Engineer
-Amazon Learning Ambassador & Problem Solver
 
 ---
 
