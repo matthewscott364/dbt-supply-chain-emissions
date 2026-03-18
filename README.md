@@ -19,19 +19,19 @@ This project answers:
 
 ## 🏗️ Architecture
 
-CSV (Unity Catalog Volume)
-↓
-Raw Table (Databricks)
-↓
-dbt Staging Layer
-↓
-Dimensional Model (Fact + Dimension)
-↓
-Intermediate Business Logic Layer
-↓
-Analytics Marts (BI-ready)
-↓
-Power BI Dashboard (optional)
+<p>CSV (Unity Catalog Volume)<p/>
+<p>↓<p/>
+<p>Raw Table (Databricks)<p/>
+<p>↓<p/>
+<p>dbt Staging Layer<p/>
+<p>↓<p/>
+<p>Dimensional Model (Fact + Dimension)<p/>
+<p>↓<p/>
+<p>Intermediate Business Logic Layer<p/>
+<p>↓<p/>
+<p>Analytics Marts (BI-ready)<p/>
+<p>↓<p/>
+<p>Power BI Dashboard (optional)<p/>
 
 ---
 
@@ -78,15 +78,6 @@ Power BI Dashboard (optional)
   - `emission_intensity_band`
 - Structured project using **dbt best practices**
 - Leveraged **Unity Catalog volumes** for governed data ingestion
-
----
-
-## 📈 Example Insights
-
-- Identify top carbon-intensive industries
-- Compare emissions with and without margins
-- Segment industries into High / Medium / Low emission categories
-- Analyze emissions across greenhouse gas types
 
 ---
 
