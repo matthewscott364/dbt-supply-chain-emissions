@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_supply_chain_emissions
+    description: Clean staging model for NAICS-based supply chain greenhouse gas emission factors.
+
+    columns:
+      - name: naics_code
+        description: 2017 NAICS industry classification code.
+        tests:
+          - not_null
+
+      - name: naics_title
+        description: Industry title associated with the NAICS code.
+        tests:
+          - not_null
+
+      - name: ghg_category
+        description: Greenhouse gas category represented by the emission factor.
+        tests:
+          - not_null
+
+      - name: emission_unit
+        description: Unit of measurement for the emission factor.
+
+      - name: emission_factor_without_margins
+        description: Supply chain emission factor excluding margins.
+
+      - name: margin_emission_factor
+        description: Margin component of the supply chain emission factor.
+
+      - name: emission_factor_with_margins
+        description: Total supply chain emission factor including margins.
+        tests:
+          - not_null
+
+      - name: useeio_code
+        description: Reference USEEIO code tied to the industry mapping.
+        tests:
+          - not_null

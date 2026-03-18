@@ -1,0 +1,118 @@
+version: 2
+
+models:
+  - name: dim_industry
+    description: Dimension table containing unique industry records based on NAICS code.
+
+    columns:
+      - name: naics_code
+        description: Unique NAICS code for the industry.
+        tests:
+          - not_null
+          - unique
+
+      - name: naics_title
+        description: Descriptive title of the NAICS industry.
+        tests:
+          - not_null
+
+      - name: useeio_code
+        description: Reference USEEIO code mapped to the industry.
+        tests:
+          - not_null
+
+  - name: fct_emission_factors
+    description: Fact table containing emissions metrics by industry and greenhouse gas category.
+
+    columns:
+      - name: naics_code
+        description: Foreign key to dim_industry.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_industry')
+              field: naics_code
+
+      - name: ghg_category
+        description: Greenhouse gas category for the emissions record.
+        tests:
+          - not_null
+
+      - name: emission_unit
+        description: Unit of measurement for the emissions factor.
+        tests:
+          - not_null
+
+      - name: emission_factor_without_margins
+        description: Emission factor excluding margins.
+        tests:
+          - not_null
+
+      - name: margin_emission_factor
+        description: Margin component of the emission factor.
+        tests:
+          - not_null
+
+      - name: emission_factor_with_margins
+        description: Emission factor including margins.
+        tests:
+          - not_null
+
+  - name: industry_emission_rankings
+    description: Business mart ranking industries by average emissions and average margin impact.
+
+    columns:
+      - name: naics_code
+        description: Industry NAICS code.
+        tests:
+          - not_null
+
+      - name: naics_title
+        description: Industry title.
+        tests:
+          - not_null
+
+      - name: avg_emission_factor_with_margins
+        description: Average emissions factor with margins by industry.
+        tests:
+          - not_null
+
+      - name: avg_margin_impact
+        description: Average contribution of margins to the total emission factor.
+
+  - name: emission_intensity_summary
+    description: Summary mart counting records and average emissions by emissions intensity band.
+
+    columns:
+      - name: emission_intensity_band
+        description: Emission intensity category.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['High', 'Medium', 'Low']
+
+      - name: industry_count
+        description: Number of records in the intensity band.
+        tests:
+          - not_null
+
+      - name: avg_emission_factor
+        description: Average emissions factor with margins for the intensity band.
+
+  - name: ghg_comparison
+    description: Comparison mart summarizing emission factor metrics across greenhouse gas categories.
+
+    columns:
+      - name: ghg_category
+        description: Greenhouse gas category.
+        tests:
+          - not_null
+
+      - name: avg_without_margins
+        description: Average emission factor without margins.
+
+      - name: avg_margin_component
+        description: Average margin component of the emission factor.
+
+      - name: avg_with_margins
+        description: Average emission factor with margins.

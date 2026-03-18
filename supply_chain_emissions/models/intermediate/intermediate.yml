@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: int_emission_enriched
+    description: Intermediate model joining industry dimension data with emission factor measures and adding business-friendly calculated fields.
+
+    columns:
+      - name: naics_code
+        description: Industry NAICS code.
+        tests:
+          - not_null
+
+      - name: naics_title
+        description: Industry title.
+        tests:
+          - not_null
+
+      - name: useeio_code
+        description: USEEIO reference code.
+        tests:
+          - not_null
+
+      - name: ghg_category
+        description: Greenhouse gas category.
+        tests:
+          - not_null
+
+      - name: emission_unit
+        description: Unit of measure for the emission factor.
+        tests:
+          - not_null
+
+      - name: emission_factor_without_margins
+        description: Emission factor excluding margins.
+        tests:
+          - not_null
+
+      - name: margin_emission_factor
+        description: Margin component of the emission factor.
+        tests:
+          - not_null
+
+      - name: emission_factor_with_margins
+        description: Emission factor including margins.
+        tests:
+          - not_null
+
+      - name: margin_impact
+        description: Difference between emission factor with margins and without margins.
+
+      - name: emission_intensity_band
+        description: Categorized emissions intensity band based on emission factor with margins.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['High', 'Medium', 'Low']
