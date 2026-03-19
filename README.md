@@ -34,8 +34,6 @@ Dimensional Model (Fact + Dimension)
 Intermediate Business Logic Layer
         ↓
 Analytics Marts (BI-ready)
-        ↓
-Power BI Dashboard (optional)
 ```
 
 ---
@@ -65,7 +63,6 @@ dim_industry        fct_emission_factors
 * **dbt (dbt-databricks)** (transformations)
 * **Delta Lake** (storage format)
 * **SQL** (modeling)
-* **Power BI** (optional visualization)
 
 ---
 
@@ -218,7 +215,7 @@ Adds:
 ## 👤 Author
 
 **Matthew Scott**
-Aspiring Analytics Engineer / Data Engineer
+<p>Aspiring Analytics Engineer / Data Engineer<p/>
 
 ---
 
